@@ -1,0 +1,15 @@
+---
+# tasks file for keepassxc
+- name: install keepassxc
+  package:
+    name: "{{ keepassxc_packages }}"
+    state: present
+  register: keepassxc_install_keepassxc
+  until: keepassxc_install_keepassxc is succeeded
+  retries: 3
+
+#- name: configure keepassxc
+#  template:
+#    src: "{{ keepassxc_config_file }}.j2"
+#    dest: "{{ keepassxc_config_directory }}/{{ keepassxc_config_file }}"
+

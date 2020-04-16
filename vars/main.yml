@@ -1,0 +1,10 @@
+---
+# vars file for keepassxc
+_keepassxc_packages:
+  default:
+    - keepassxc
+
+keepassxc_packages: "{{ _keepassxc_packages[ansible_os_family] | default(_keepassxc_packages['default']) }}"
+
+# configuration
+# ~/.config/keepassxc/keepassxc.ini
